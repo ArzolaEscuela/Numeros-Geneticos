@@ -178,5 +178,17 @@ namespace Numeros_Geneticos.Properties {
                 this["SimilarAmountToConcludeUniformity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int TargetNumber {
+            get {
+                return ((int)(this["TargetNumber"]));
+            }
+            set {
+                this["TargetNumber"] = value;
+            }
+        }
     }
 }

@@ -40,13 +40,13 @@
             this.lName = new System.Windows.Forms.Label();
             this.bRun = new System.Windows.Forms.Button();
             this.nudSeed = new System.Windows.Forms.NumericUpDown();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.barElitismChromosomeChance = new System.Windows.Forms.TrackBar();
             this.cbSeed = new System.Windows.Forms.CheckBox();
             this.nupIndividualsPerGeneration = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.separator = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nudSelectionsByElitism = new System.Windows.Forms.NumericUpDown();
             this.nudMaxTotalGenerations = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.nupTotalChromosomes = new System.Windows.Forms.NumericUpDown();
@@ -63,7 +63,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lMutationChance = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.barMutationChance = new System.Windows.Forms.TrackBar();
             this.label14 = new System.Windows.Forms.Label();
             this.nupChromosomesMatchesToConcludeSimilar = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
@@ -73,15 +73,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barElitismChromosomeChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupIndividualsPerGeneration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSelectionsByElitism)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxTotalGenerations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalChromosomes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSecondaryMutationChromosomesAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupInitialNumberChromosomesAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupMaxMutableChromosomes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barMutationChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupChromosomesMatchesToConcludeSimilar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSimilarAmountToConcludeUniformity)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +94,7 @@
             this.bNext.TabIndex = 1;
             this.bNext.Text = "🡲";
             this.bNext.UseVisualStyleBackColor = true;
+            this.bNext.Click += new System.EventHandler(this.bNext_Click);
             // 
             // lSeed
             // 
@@ -133,6 +134,7 @@
             this.bPrevious.TabIndex = 5;
             this.bPrevious.Text = "🡰";
             this.bPrevious.UseVisualStyleBackColor = true;
+            this.bPrevious.Click += new System.EventHandler(this.bPrevious_Click);
             // 
             // bFirst
             // 
@@ -142,6 +144,7 @@
             this.bFirst.TabIndex = 6;
             this.bFirst.Text = "Primera";
             this.bFirst.UseVisualStyleBackColor = true;
+            this.bFirst.Click += new System.EventHandler(this.bFirst_Click);
             // 
             // bLast
             // 
@@ -151,6 +154,7 @@
             this.bLast.TabIndex = 7;
             this.bLast.Text = "Última";
             this.bLast.UseVisualStyleBackColor = true;
+            this.bLast.Click += new System.EventHandler(this.bLast_Click);
             // 
             // rtbInstructions
             // 
@@ -180,24 +184,36 @@
             this.bRun.TabIndex = 10;
             this.bRun.Text = "Empezar Simulación";
             this.bRun.UseVisualStyleBackColor = true;
+            this.bRun.Click += new System.EventHandler(this.bRun_Click);
             // 
             // nudSeed
             // 
             this.nudSeed.Location = new System.Drawing.Point(213, 34);
+            this.nudSeed.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.nudSeed.Minimum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            -2147483648});
             this.nudSeed.Name = "nudSeed";
             this.nudSeed.Size = new System.Drawing.Size(120, 20);
             this.nudSeed.TabIndex = 12;
+            this.nudSeed.ValueChanged += new System.EventHandler(this.nudSeed_ValueChanged);
             // 
-            // trackBar1
+            // barElitismChromosomeChance
             // 
-            this.trackBar1.LargeChange = 50;
-            this.trackBar1.Location = new System.Drawing.Point(28, 215);
-            this.trackBar1.Maximum = 1000;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(288, 45);
-            this.trackBar1.TabIndex = 13;
-            this.trackBar1.TickFrequency = 50;
-            this.trackBar1.Value = 1;
+            this.barElitismChromosomeChance.LargeChange = 50;
+            this.barElitismChromosomeChance.Location = new System.Drawing.Point(28, 215);
+            this.barElitismChromosomeChance.Maximum = 1000;
+            this.barElitismChromosomeChance.Name = "barElitismChromosomeChance";
+            this.barElitismChromosomeChance.Size = new System.Drawing.Size(288, 45);
+            this.barElitismChromosomeChance.TabIndex = 13;
+            this.barElitismChromosomeChance.TickFrequency = 50;
+            this.barElitismChromosomeChance.Scroll += new System.EventHandler(this.barElitismChromosomeChance_Scroll);
             // 
             // cbSeed
             // 
@@ -209,6 +225,7 @@
             this.cbSeed.TabIndex = 14;
             this.cbSeed.Text = "¿Usar Semilla?";
             this.cbSeed.UseVisualStyleBackColor = true;
+            this.cbSeed.CheckedChanged += new System.EventHandler(this.cbSeed_CheckedChanged);
             // 
             // nupIndividualsPerGeneration
             // 
@@ -216,6 +233,7 @@
             this.nupIndividualsPerGeneration.Name = "nupIndividualsPerGeneration";
             this.nupIndividualsPerGeneration.Size = new System.Drawing.Size(120, 20);
             this.nupIndividualsPerGeneration.TabIndex = 15;
+            this.nupIndividualsPerGeneration.ValueChanged += new System.EventHandler(this.nupIndividualsPerGeneration_ValueChanged);
             // 
             // label1
             // 
@@ -250,12 +268,13 @@
             this.label2.Text = "Total de Elecciones Por Elitismo";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // numericUpDown2
+            // nudSelectionsByElitism
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(249, 112);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 19;
+            this.nudSelectionsByElitism.Location = new System.Drawing.Point(249, 112);
+            this.nudSelectionsByElitism.Name = "nudSelectionsByElitism";
+            this.nudSelectionsByElitism.Size = new System.Drawing.Size(120, 20);
+            this.nudSelectionsByElitism.TabIndex = 19;
+            this.nudSelectionsByElitism.ValueChanged += new System.EventHandler(this.nudSelectionsByElitism_ValueChanged);
             // 
             // nudMaxTotalGenerations
             // 
@@ -263,6 +282,7 @@
             this.nudMaxTotalGenerations.Name = "nudMaxTotalGenerations";
             this.nudMaxTotalGenerations.Size = new System.Drawing.Size(120, 20);
             this.nudMaxTotalGenerations.TabIndex = 21;
+            this.nudMaxTotalGenerations.ValueChanged += new System.EventHandler(this.nudMaxTotalGenerations_ValueChanged);
             // 
             // label3
             // 
@@ -278,9 +298,20 @@
             // nupTotalChromosomes
             // 
             this.nupTotalChromosomes.Location = new System.Drawing.Point(249, 255);
+            this.nupTotalChromosomes.Minimum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             this.nupTotalChromosomes.Name = "nupTotalChromosomes";
             this.nupTotalChromosomes.Size = new System.Drawing.Size(120, 20);
             this.nupTotalChromosomes.TabIndex = 23;
+            this.nupTotalChromosomes.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.nupTotalChromosomes.ValueChanged += new System.EventHandler(this.nupTotalChromosomes_ValueChanged);
             // 
             // label4
             // 
@@ -299,6 +330,7 @@
             this.nupSecondaryMutationChromosomesAmount.Name = "nupSecondaryMutationChromosomesAmount";
             this.nupSecondaryMutationChromosomesAmount.Size = new System.Drawing.Size(120, 20);
             this.nupSecondaryMutationChromosomesAmount.TabIndex = 25;
+            this.nupSecondaryMutationChromosomesAmount.ValueChanged += new System.EventHandler(this.nupSecondaryMutationChromosomesAmount_ValueChanged);
             // 
             // label5
             // 
@@ -317,6 +349,7 @@
             this.nupInitialNumberChromosomesAmount.Name = "nupInitialNumberChromosomesAmount";
             this.nupInitialNumberChromosomesAmount.Size = new System.Drawing.Size(120, 20);
             this.nupInitialNumberChromosomesAmount.TabIndex = 27;
+            this.nupInitialNumberChromosomesAmount.ValueChanged += new System.EventHandler(this.nupInitialNumberChromosomesAmount_ValueChanged);
             // 
             // label6
             // 
@@ -379,6 +412,7 @@
             this.nupMaxMutableChromosomes.Name = "nupMaxMutableChromosomes";
             this.nupMaxMutableChromosomes.Size = new System.Drawing.Size(120, 20);
             this.nupMaxMutableChromosomes.TabIndex = 33;
+            this.nupMaxMutableChromosomes.ValueChanged += new System.EventHandler(this.nupMaxMutableChromosomes_ValueChanged);
             // 
             // label11
             // 
@@ -413,16 +447,16 @@
             this.label13.Text = "Probabilidad de Mutación de un Cromosoma";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // trackBar2
+            // barMutationChance
             // 
-            this.trackBar2.LargeChange = 50;
-            this.trackBar2.Location = new System.Drawing.Point(28, 394);
-            this.trackBar2.Maximum = 1000;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(288, 45);
-            this.trackBar2.TabIndex = 34;
-            this.trackBar2.TickFrequency = 50;
-            this.trackBar2.Value = 1;
+            this.barMutationChance.LargeChange = 50;
+            this.barMutationChance.Location = new System.Drawing.Point(28, 394);
+            this.barMutationChance.Maximum = 1000;
+            this.barMutationChance.Name = "barMutationChance";
+            this.barMutationChance.Size = new System.Drawing.Size(288, 45);
+            this.barMutationChance.TabIndex = 34;
+            this.barMutationChance.TickFrequency = 50;
+            this.barMutationChance.Scroll += new System.EventHandler(this.barMutationChance_Scroll);
             // 
             // label14
             // 
@@ -441,6 +475,7 @@
             this.nupChromosomesMatchesToConcludeSimilar.Name = "nupChromosomesMatchesToConcludeSimilar";
             this.nupChromosomesMatchesToConcludeSimilar.Size = new System.Drawing.Size(120, 20);
             this.nupChromosomesMatchesToConcludeSimilar.TabIndex = 39;
+            this.nupChromosomesMatchesToConcludeSimilar.ValueChanged += new System.EventHandler(this.nupChromosomesMatchesToConcludeSimilar_ValueChanged);
             // 
             // label15
             // 
@@ -459,6 +494,7 @@
             this.nupSimilarAmountToConcludeUniformity.Name = "nupSimilarAmountToConcludeUniformity";
             this.nupSimilarAmountToConcludeUniformity.Size = new System.Drawing.Size(120, 20);
             this.nupSimilarAmountToConcludeUniformity.TabIndex = 41;
+            this.nupSimilarAmountToConcludeUniformity.ValueChanged += new System.EventHandler(this.nupSimilarAmountToConcludeUniformity_ValueChanged);
             // 
             // label16
             // 
@@ -494,7 +530,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lMutationChance);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.trackBar2);
+            this.Controls.Add(this.barMutationChance);
             this.Controls.Add(this.nupMaxMutableChromosomes);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -509,13 +545,13 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nudMaxTotalGenerations);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.nudSelectionsByElitism);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.separator);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nupIndividualsPerGeneration);
             this.Controls.Add(this.cbSeed);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.barElitismChromosomeChance);
             this.Controls.Add(this.nudSeed);
             this.Controls.Add(this.bRun);
             this.Controls.Add(this.lName);
@@ -537,15 +573,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbGenerationResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerationResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barElitismChromosomeChance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupIndividualsPerGeneration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSelectionsByElitism)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxTotalGenerations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalChromosomes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSecondaryMutationChromosomesAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupInitialNumberChromosomesAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupMaxMutableChromosomes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barMutationChance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupChromosomesMatchesToConcludeSimilar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSimilarAmountToConcludeUniformity)).EndInit();
             this.ResumeLayout(false);
@@ -565,13 +601,13 @@
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.Button bRun;
         private System.Windows.Forms.NumericUpDown nudSeed;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar barElitismChromosomeChance;
         private System.Windows.Forms.CheckBox cbSeed;
         private System.Windows.Forms.NumericUpDown nupIndividualsPerGeneration;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label separator;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nudSelectionsByElitism;
         private System.Windows.Forms.NumericUpDown nudMaxTotalGenerations;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nupTotalChromosomes;
@@ -588,7 +624,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lMutationChance;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.TrackBar barMutationChance;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown nupChromosomesMatchesToConcludeSimilar;
         private System.Windows.Forms.Label label15;
