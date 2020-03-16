@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Numeros_Geneticos
 {
@@ -42,6 +44,28 @@ namespace Numeros_Geneticos
             T[] result = new T[length];
             Array.Copy(array, minIndex, result, 0, length);
             return result;
+        }
+
+        public static bool IsNumeric(this string thisString)
+        {
+            return Regex.IsMatch(thisString, @"^\d+$");
+        }
+
+        public static void Clear(this DataGridView dgv)
+        {
+            dgv.Rows.Clear();
+            dgv.Columns.Clear();
+            dgv.DataSource = null;
+        }
+
+        public static int AsInt(this string thisString)
+        {
+            int result;
+            if (int.TryParse(thisString, out result))
+            {
+                return result;
+            }
+            return -1;
         }
 
     }

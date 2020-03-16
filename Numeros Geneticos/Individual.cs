@@ -35,7 +35,7 @@ namespace Numeros_Geneticos
         //------------------------------------------------------------------------------------//
 
         private Generation _generation;
-        private readonly Color _drawColor;
+        private Color _drawColor;
         private readonly Chromosome[] _chromosomes;
 
         private List<Result> _obtainedResults = new List<Result>();
@@ -172,10 +172,10 @@ namespace Numeros_Geneticos
             _generation = generation;
 
             // Generate Individual Color
-            Color color = Color.White;
-            while (color.IsSimilarToColor(Color.White))
+            _drawColor = Color.White;
+            while (_drawColor.IsSimilarToColor(Color.White))
             {
-                color = Color.FromArgb(255, RandomManager.RandomInt(0, 255),
+                _drawColor = Color.FromArgb(255, RandomManager.RandomInt(0, 255),
                     RandomManager.RandomInt(0, 255), RandomManager.RandomInt(0, 255));
             }
         }
