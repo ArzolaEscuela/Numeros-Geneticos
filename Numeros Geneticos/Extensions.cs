@@ -30,7 +30,7 @@ namespace Numeros_Geneticos
 
         private static int SafeAddOrIncrease<T>(this Dictionary<T, int> thisDictionary, T toLook)
         {
-            thisDictionary.SafeAddOrModify(i => i + 1, toLook, 0);
+            thisDictionary.SafeAddOrModify(i => i + 1, toLook, 1);
             return thisDictionary[toLook];
         }
 
@@ -50,12 +50,17 @@ namespace Numeros_Geneticos
         {
             return Regex.IsMatch(thisString, @"^\d+$");
         }
-
+        
         public static void Clear(this DataGridView dgv)
         {
             dgv.Rows.Clear();
             dgv.Columns.Clear();
             dgv.DataSource = null;
+        }
+
+        public static void ClearAndRedrawGrid(this PictureBox pb)
+        {
+           // throw new NotImplementedException();
         }
 
         public static int AsInt(this string thisString)

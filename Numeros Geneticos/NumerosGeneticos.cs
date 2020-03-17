@@ -13,6 +13,8 @@ namespace Numeros_Geneticos
 {
     public partial class NumerosGeneticos : Form
     {
+        private Results _results = null;
+
         #region Initializers
 
         public NumerosGeneticos()
@@ -28,10 +30,6 @@ namespace Numeros_Geneticos
 
         private void Initialize()
         {
-            bFirst.Enabled = false;
-            bLast.Enabled = false;
-            bNext.Enabled = false;
-            bPrevious.Enabled = false;
             SetInitialValues();
             ValidateAll();
         }
@@ -54,12 +52,12 @@ namespace Numeros_Geneticos
             string parImpar = SettingsManager.ChromosomeShouldBeEven ? "par" : "impar";
             rtbInstructions.AppendText(
                 $@"- Los primeros {SettingsManager.SecondaryMutationChromosomesAmount} cromosomas determinan el ruido, en este caso, una cantidad máxima de cromosomas que se ''voltearán'' en tiempo de ejecución (no afecta a los cromosomas que se heredan).
-- El siguiente cromosoma determina un signo(pero estrictamente hablando, determina si el resultado final se multiplica por 1 o por - 1).
 - Los siguientes {SettingsManager.InitialNumberChromosomesAmount} cromosomas determinan un número de partida.
+- El último cromosoma determina un signo (pero estrictamente hablando, determina si el resultado final se multiplica por 1 o por - 1).
 - El resto de los cromosomas simula la siguiente secuencia de operaciones:{Environment.NewLine}
          ◆ [Suma/Resta/Nada > Multiplicacion/División/Nada] * 2 Veces  > Cuadrado/Raiz Cuadrada/Nada > ...
     ◆ Los cromosomas se dividen en pares para lograr la secuencia anterior.El primer cromosoma del par determina si la operación se lleva a cabo o no, mientras que el segundo determina cual de las dos operaciones sucede.
-    ◆ La magnitud de las operaciones(exceptuando el cuadrado y la raiz), se duplica en base a la cantidad de veces que dicho par de cromosomas ha sucedido.Es decir, la primera vez que se encuentra un par de cromosomas que suma o resta, la cantidad potencialmente sumada o restada es 1, la siguiente vez será 2, luego 4, 8, etc.
+    ◆ La magnitud de las operaciones(exceptuando el cuadrado y la raiz), se duplica en base a la cantidad de veces que dicho par de cromosomas ha sucedido, empezando por 2. Es decir, la primera vez que se encuentra un par de cromosomas que suma o resta, la cantidad potencialmente sumada o restada es 2, la siguiente vez será 4, luego 8, 16, etc.
     ◆ El valor acomulado es redondeado antes de un cuadrado/raiz y al finalizar todas las operaciones.
     ◆ En caso de underflow, overflow u otro error al momento de emajecutar una operación, la operación que lo causó es ignorada y se sigue normal.{Environment.NewLine}");
             rtbInstructions.AppendText($@"{Environment.NewLine}Por estas condiciones, la cantidad de chromosomas siempre deberá ser mayor a {SettingsManager.FakeMinimumChromosomeSize} y un número {parImpar}. Sin embargo, no se recomienda escoger {SettingsManager.FakeMinimumChromosomeSize}, ya que el mayor número al que se podría llegar es de 65, es mejor experimentar escogiendo un número mayor de cromosomas para una mayor variabilidad.");
@@ -151,6 +149,13 @@ namespace Numeros_Geneticos
 
         private void SetInitialValues()
         {
+            bFirst.Enabled = false;
+            bLast.Enabled = false;
+            bNext.Enabled = false;
+            bPrevious.Enabled = false;
+
+            lGenerationCount.Text = "0/0";
+
             cbSeed.Checked = SettingsManager.UseSeed;
             nudSeed.Value = SettingsManager.InitialSeed;
 
@@ -170,6 +175,8 @@ namespace Numeros_Geneticos
 
             nupChromosomesMatchesToConcludeSimilar.Value = SettingsManager.ChromosomesMatchesToConcludeSimilar;
             nupSimilarAmountToConcludeUniformity.Value = SettingsManager.IndividualMatchesToStopSimulation;
+
+            numericUpDown1.Value = SettingsManager.TargetNumber;
         }
 
         private void cbSeed_CheckedChanged(object sender, EventArgs e)
@@ -248,34 +255,39 @@ namespace Numeros_Geneticos
             ValidateAll();
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            SettingsManager.TargetNumber = (int)numericUpDown1.Value;
+        }
 
         #endregion Validators
 
         #region Application Controls
-        
+
         private void bRun_Click(object sender, EventArgs e)
         {
-
+            _results = new Results();
+            _results.StartNewRun(pbGenerationResults, dgvGenerationResults, lGenerationCount, rtbErrors, bFirst, bLast, bNext, bPrevious);
         }
 
         private void bFirst_Click(object sender, EventArgs e)
         {
-
+            _results.MoveTo(EMoveTo.First);
         }
 
         private void bLast_Click(object sender, EventArgs e)
         {
-
+            _results.MoveTo(EMoveTo.Last);
         }
 
         private void bPrevious_Click(object sender, EventArgs e)
         {
-
+            _results.MoveTo(EMoveTo.Previous);
         }
 
         private void bNext_Click(object sender, EventArgs e)
         {
-
+            _results.MoveTo(EMoveTo.Next);
         }
 
         #endregion Application Controls

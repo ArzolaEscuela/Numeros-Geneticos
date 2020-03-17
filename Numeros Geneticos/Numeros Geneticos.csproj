@@ -51,7 +51,7 @@
     <Compile Include="Generation.cs" />
     <Compile Include="Individual.cs" />
     <Compile Include="RandomManager.cs" />
-    <Compile Include="ResultsManager.cs" />
+    <Compile Include="Results.cs" />
     <Compile Include="NumerosGeneticos.cs">
       <SubType>Form</SubType>
     </Compile>

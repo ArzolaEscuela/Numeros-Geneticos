@@ -70,6 +70,9 @@
             this.nupSimilarAmountToConcludeUniformity = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.rtbErrors = new System.Windows.Forms.RichTextBox();
+            this.lGenerationCount = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeed)).BeginInit();
@@ -84,11 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.barMutationChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupChromosomesMatchesToConcludeSimilar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSimilarAmountToConcludeUniformity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // bNext
             // 
-            this.bNext.Location = new System.Drawing.Point(605, 282);
+            this.bNext.Location = new System.Drawing.Point(674, 282);
             this.bNext.Name = "bNext";
             this.bNext.Size = new System.Drawing.Size(75, 23);
             this.bNext.TabIndex = 1;
@@ -112,7 +116,7 @@
             this.pbGenerationResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbGenerationResults.Location = new System.Drawing.Point(403, 12);
             this.pbGenerationResults.Name = "pbGenerationResults";
-            this.pbGenerationResults.Size = new System.Drawing.Size(373, 263);
+            this.pbGenerationResults.Size = new System.Drawing.Size(496, 250);
             this.pbGenerationResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGenerationResults.TabIndex = 3;
             this.pbGenerationResults.TabStop = false;
@@ -123,12 +127,12 @@
             this.dgvGenerationResults.Location = new System.Drawing.Point(403, 319);
             this.dgvGenerationResults.Name = "dgvGenerationResults";
             this.dgvGenerationResults.ReadOnly = true;
-            this.dgvGenerationResults.Size = new System.Drawing.Size(373, 392);
+            this.dgvGenerationResults.Size = new System.Drawing.Size(496, 392);
             this.dgvGenerationResults.TabIndex = 4;
             // 
             // bPrevious
             // 
-            this.bPrevious.Location = new System.Drawing.Point(505, 282);
+            this.bPrevious.Location = new System.Drawing.Point(574, 282);
             this.bPrevious.Name = "bPrevious";
             this.bPrevious.Size = new System.Drawing.Size(75, 23);
             this.bPrevious.TabIndex = 5;
@@ -138,7 +142,7 @@
             // 
             // bFirst
             // 
-            this.bFirst.Location = new System.Drawing.Point(403, 282);
+            this.bFirst.Location = new System.Drawing.Point(472, 282);
             this.bFirst.Name = "bFirst";
             this.bFirst.Size = new System.Drawing.Size(75, 23);
             this.bFirst.TabIndex = 6;
@@ -148,7 +152,7 @@
             // 
             // bLast
             // 
-            this.bLast.Location = new System.Drawing.Point(701, 282);
+            this.bLast.Location = new System.Drawing.Point(770, 282);
             this.bLast.Name = "bLast";
             this.bLast.Size = new System.Drawing.Size(75, 23);
             this.bLast.TabIndex = 7;
@@ -178,7 +182,7 @@
             // bRun
             // 
             this.bRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bRun.Location = new System.Drawing.Point(108, 568);
+            this.bRun.Location = new System.Drawing.Point(208, 571);
             this.bRun.Name = "bRun";
             this.bRun.Size = new System.Drawing.Size(179, 30);
             this.bRun.TabIndex = 10;
@@ -298,6 +302,11 @@
             // nupTotalChromosomes
             // 
             this.nupTotalChromosomes.Location = new System.Drawing.Point(249, 255);
+            this.nupTotalChromosomes.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nupTotalChromosomes.Minimum = new decimal(new int[] {
             25,
             0,
@@ -327,6 +336,11 @@
             // nupSecondaryMutationChromosomesAmount
             // 
             this.nupSecondaryMutationChromosomesAmount.Location = new System.Drawing.Point(249, 285);
+            this.nupSecondaryMutationChromosomesAmount.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nupSecondaryMutationChromosomesAmount.Name = "nupSecondaryMutationChromosomesAmount";
             this.nupSecondaryMutationChromosomesAmount.Size = new System.Drawing.Size(120, 20);
             this.nupSecondaryMutationChromosomesAmount.TabIndex = 25;
@@ -346,6 +360,11 @@
             // nupInitialNumberChromosomesAmount
             // 
             this.nupInitialNumberChromosomesAmount.Location = new System.Drawing.Point(249, 319);
+            this.nupInitialNumberChromosomesAmount.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nupInitialNumberChromosomesAmount.Name = "nupInitialNumberChromosomesAmount";
             this.nupInitialNumberChromosomesAmount.Size = new System.Drawing.Size(120, 20);
             this.nupInitialNumberChromosomesAmount.TabIndex = 27;
@@ -409,6 +428,11 @@
             // nupMaxMutableChromosomes
             // 
             this.nupMaxMutableChromosomes.Location = new System.Drawing.Point(240, 440);
+            this.nupMaxMutableChromosomes.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nupMaxMutableChromosomes.Name = "nupMaxMutableChromosomes";
             this.nupMaxMutableChromosomes.Size = new System.Drawing.Size(120, 20);
             this.nupMaxMutableChromosomes.TabIndex = 33;
@@ -472,6 +496,11 @@
             // nupChromosomesMatchesToConcludeSimilar
             // 
             this.nupChromosomesMatchesToConcludeSimilar.Location = new System.Drawing.Point(236, 497);
+            this.nupChromosomesMatchesToConcludeSimilar.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nupChromosomesMatchesToConcludeSimilar.Name = "nupChromosomesMatchesToConcludeSimilar";
             this.nupChromosomesMatchesToConcludeSimilar.Size = new System.Drawing.Size(120, 20);
             this.nupChromosomesMatchesToConcludeSimilar.TabIndex = 39;
@@ -513,15 +542,58 @@
             this.rtbErrors.Location = new System.Drawing.Point(401, 717);
             this.rtbErrors.Name = "rtbErrors";
             this.rtbErrors.ReadOnly = true;
-            this.rtbErrors.Size = new System.Drawing.Size(375, 95);
+            this.rtbErrors.Size = new System.Drawing.Size(498, 95);
             this.rtbErrors.TabIndex = 42;
             this.rtbErrors.Text = "";
+            // 
+            // lGenerationCount
+            // 
+            this.lGenerationCount.CausesValidation = false;
+            this.lGenerationCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lGenerationCount.Location = new System.Drawing.Point(841, 238);
+            this.lGenerationCount.Name = "lGenerationCount";
+            this.lGenerationCount.Size = new System.Drawing.Size(57, 23);
+            this.lGenerationCount.TabIndex = 43;
+            this.lGenerationCount.Text = "100/100";
+            this.lGenerationCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(97, 576);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(101, 20);
+            this.numericUpDown1.TabIndex = 45;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.CausesValidation = false;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 575);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 23);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Número Blanco";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NumerosGeneticos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 840);
+            this.ClientSize = new System.Drawing.Size(911, 840);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lGenerationCount);
             this.Controls.Add(this.rtbErrors);
             this.Controls.Add(this.nupSimilarAmountToConcludeUniformity);
             this.Controls.Add(this.label16);
@@ -584,6 +656,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barMutationChance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupChromosomesMatchesToConcludeSimilar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSimilarAmountToConcludeUniformity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,6 +704,9 @@
         private System.Windows.Forms.NumericUpDown nupSimilarAmountToConcludeUniformity;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.RichTextBox rtbErrors;
+        private System.Windows.Forms.Label lGenerationCount;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label8;
     }
 }
 

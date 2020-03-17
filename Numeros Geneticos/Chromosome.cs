@@ -37,5 +37,7 @@ namespace Numeros_Geneticos
             _usable = usable;
             this._originalOwner = originalOwner;
         }
+
+        public override string ToString() => $"[Original Owner: {_originalOwner.Name}, Usable?: {_usable}]";
     }
 }
