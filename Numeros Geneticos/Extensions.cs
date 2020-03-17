@@ -11,7 +11,7 @@ namespace Numeros_Geneticos
 {
     public static class Extensions
     {
-        public static bool IsSimilarToColor(this Color thisColor, Color otherColor, int tolerance = 20)
+        public static bool IsSimilarToColor(this Color thisColor, Color otherColor, int tolerance = 40)
         {
             return Math.Abs(thisColor.R - otherColor.R) < tolerance &&
                    Math.Abs(thisColor.G - otherColor.G) < tolerance &&
@@ -50,7 +50,7 @@ namespace Numeros_Geneticos
         {
             return Regex.IsMatch(thisString, @"^\d+$");
         }
-        
+
         public static void Clear(this DataGridView dgv)
         {
             dgv.Rows.Clear();
@@ -60,7 +60,7 @@ namespace Numeros_Geneticos
 
         public static void ClearAndRedrawGrid(this PictureBox pb)
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public static int AsInt(this string thisString)
@@ -71,6 +71,19 @@ namespace Numeros_Geneticos
                 return result;
             }
             return -1;
+        }
+
+        public static T2[] TransformArray<T, T2>(this T[] array, Func<T, T2> transformer)
+        {
+            int arraySize = array.Length;
+            T2[] newArray = new T2[arraySize];
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                newArray[i] = transformer(array[i]);
+            }
+
+            return newArray;
         }
 
     }

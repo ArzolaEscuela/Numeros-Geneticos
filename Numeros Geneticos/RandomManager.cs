@@ -12,6 +12,13 @@ namespace Numeros_Geneticos
         /// </summary>
         public static int RandomInt(int min, int max) => _random.Next(min, max + 1);
 
+        public static int RandomIntWithHollowSpot(int min, int max, int hollowSpot)
+        {
+            int result = RandomInt(min, max);
+            while (result == hollowSpot) { result = RandomInt(min, max); }
+            return result;
+        }
+
         public static T[] RandomizeArray<T>(this T[] array) => array.OrderBy(x => _random.Next()).ToArray();
 
         /// <summary>

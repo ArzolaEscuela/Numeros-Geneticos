@@ -267,7 +267,7 @@ namespace Numeros_Geneticos
         private void bRun_Click(object sender, EventArgs e)
         {
             _results = new Results();
-            _results.StartNewRun(pbGenerationResults, dgvGenerationResults, lGenerationCount, rtbErrors, bFirst, bLast, bNext, bPrevious);
+            _results.StartNewRun(pbGenerationResults,  dgvGenerationResults, lGenerationCount, rtbErrors, bFirst, bLast, bNext, bPrevious);
         }
 
         private void bFirst_Click(object sender, EventArgs e)

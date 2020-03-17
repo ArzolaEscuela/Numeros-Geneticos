@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Numeros_Geneticos.Properties;
 
@@ -21,10 +23,10 @@ namespace Numeros_Geneticos
         //------------------------------------------------------------------------------------//
 
         // Settings Storers
-        private int _chromosomesCount;
-        private int _individualsCount;
         private bool _usedSeed;
         private int _seed;
+        private int _chromosomesCount;
+        private int _individualsCount;
         private int _targetValue;
 
         // Draw References
@@ -69,10 +71,13 @@ namespace Numeros_Geneticos
                 _currentGenerationLabel.Text = $"{targetValue + 1}/{_generations.Count}";
                 _currentlyReviewedGeneration = targetValue;
 
-                DrawGenericResults();
-                _generations[_currentlyReviewedGeneration].PopulateWithGenerationInfo(_canvas, _sheet, _errors);
+                DrawGenerationResults();
             }
         }
+
+        //------------------------------------------------------------------------------------//
+        /*---------------------------------- METHODS -----------------------------------------*/
+        //------------------------------------------------------------------------------------//
 
         public void MoveTo(EMoveTo toMoveTo)
         {
@@ -107,10 +112,23 @@ namespace Numeros_Geneticos
             }
         }
 
-        private void DrawGenericResults()
+        private void DrawGenerationResults()
         {
             _canvas.ClearAndRedrawGrid();
             _sheet.Clear();
+            _errors.ForeColor = Color.Black;
+
+            #region Draw Image
+
+            //first, create a dummy bitmap just to get a graphics object
+            Image generationImage = DrawingManager.GenerateBlankImage(_individualsCount, _chromosomesCount);
+            DrawingManager.DrawGrid(ref generationImage, _individualsCount, _chromosomesCount);
+            DrawingManager.FillSlot(ref generationImage, 4, 4, Color.Aquamarine);
+
+            #endregion Draw Image
+
+            _generations[_currentlyReviewedGeneration].PopulateWithGenerationInfo(ref generationImage, _sheet, _errors);
+            _canvas.Image = generationImage;
         }
 
         public void StartNewRun(PictureBox pbGenerationResults, DataGridView dgvGenerationResults, Label lGenerationCount, RichTextBox rtbErrors,

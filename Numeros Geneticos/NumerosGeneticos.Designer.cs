@@ -73,6 +73,7 @@
             this.lGenerationCount = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
+            this.pPicture = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeed)).BeginInit();
@@ -88,11 +89,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupChromosomesMatchesToConcludeSimilar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSimilarAmountToConcludeUniformity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.pPicture.SuspendLayout();
             this.SuspendLayout();
             // 
             // bNext
             // 
-            this.bNext.Location = new System.Drawing.Point(674, 282);
+            this.bNext.Location = new System.Drawing.Point(606, 282);
             this.bNext.Name = "bNext";
             this.bNext.Size = new System.Drawing.Size(75, 23);
             this.bNext.TabIndex = 1;
@@ -113,11 +115,10 @@
             // 
             // pbGenerationResults
             // 
-            this.pbGenerationResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbGenerationResults.Location = new System.Drawing.Point(403, 12);
+            this.pbGenerationResults.Location = new System.Drawing.Point(-1, -2);
             this.pbGenerationResults.Name = "pbGenerationResults";
-            this.pbGenerationResults.Size = new System.Drawing.Size(496, 250);
-            this.pbGenerationResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbGenerationResults.Size = new System.Drawing.Size(500, 250);
+            this.pbGenerationResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbGenerationResults.TabIndex = 3;
             this.pbGenerationResults.TabStop = false;
             // 
@@ -132,7 +133,7 @@
             // 
             // bPrevious
             // 
-            this.bPrevious.Location = new System.Drawing.Point(574, 282);
+            this.bPrevious.Location = new System.Drawing.Point(506, 282);
             this.bPrevious.Name = "bPrevious";
             this.bPrevious.Size = new System.Drawing.Size(75, 23);
             this.bPrevious.TabIndex = 5;
@@ -142,7 +143,7 @@
             // 
             // bFirst
             // 
-            this.bFirst.Location = new System.Drawing.Point(472, 282);
+            this.bFirst.Location = new System.Drawing.Point(404, 282);
             this.bFirst.Name = "bFirst";
             this.bFirst.Size = new System.Drawing.Size(75, 23);
             this.bFirst.TabIndex = 6;
@@ -152,7 +153,7 @@
             // 
             // bLast
             // 
-            this.bLast.Location = new System.Drawing.Point(770, 282);
+            this.bLast.Location = new System.Drawing.Point(705, 282);
             this.bLast.Name = "bLast";
             this.bLast.Size = new System.Drawing.Size(75, 23);
             this.bLast.TabIndex = 7;
@@ -550,7 +551,7 @@
             // 
             this.lGenerationCount.CausesValidation = false;
             this.lGenerationCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lGenerationCount.Location = new System.Drawing.Point(841, 238);
+            this.lGenerationCount.Location = new System.Drawing.Point(840, 281);
             this.lGenerationCount.Name = "lGenerationCount";
             this.lGenerationCount.Size = new System.Drawing.Size(57, 23);
             this.lGenerationCount.TabIndex = 43;
@@ -586,14 +587,25 @@
             this.label8.Text = "Número Blanco";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pPicture
+            // 
+            this.pPicture.AutoScroll = true;
+            this.pPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pPicture.Controls.Add(this.pbGenerationResults);
+            this.pPicture.Location = new System.Drawing.Point(403, 13);
+            this.pPicture.Name = "pPicture";
+            this.pPicture.Size = new System.Drawing.Size(502, 250);
+            this.pPicture.TabIndex = 46;
+            // 
             // NumerosGeneticos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 840);
+            this.Controls.Add(this.lGenerationCount);
+            this.Controls.Add(this.pPicture);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lGenerationCount);
             this.Controls.Add(this.rtbErrors);
             this.Controls.Add(this.nupSimilarAmountToConcludeUniformity);
             this.Controls.Add(this.label16);
@@ -632,7 +644,6 @@
             this.Controls.Add(this.bFirst);
             this.Controls.Add(this.bPrevious);
             this.Controls.Add(this.dgvGenerationResults);
-            this.Controls.Add(this.pbGenerationResults);
             this.Controls.Add(this.lSeed);
             this.Controls.Add(this.bNext);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -657,6 +668,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupChromosomesMatchesToConcludeSimilar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSimilarAmountToConcludeUniformity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.pPicture.ResumeLayout(false);
+            this.pPicture.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -707,6 +720,7 @@
         private System.Windows.Forms.Label lGenerationCount;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel pPicture;
     }
 }
 

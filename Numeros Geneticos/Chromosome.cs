@@ -1,8 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Numeros_Geneticos
 {
-    public static class ChromosomeExtensions
+    public static class ChromosomeExtensions 
     {
         public static int GetIntFromChromosomeArray(this Chromosome[] chromosomes)
         {
@@ -22,7 +23,7 @@ namespace Numeros_Geneticos
         }
     }
 
-    public class Chromosome
+    public class Chromosome : ICloneable
     {
         private readonly Individual _originalOwner;
         private bool _usable = false;
@@ -36,6 +37,11 @@ namespace Numeros_Geneticos
         {
             _usable = usable;
             this._originalOwner = originalOwner;
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
 
         public override string ToString() => $"[Original Owner: {_originalOwner.Name}, Usable?: {_usable}]";

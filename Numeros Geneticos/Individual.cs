@@ -23,6 +23,7 @@ namespace Numeros_Geneticos
         public readonly HashSet<int> mutatedOperationIndexes;
 
         public readonly string[] operationsSequence;
+        public readonly Chromosome[] chromosomeStates;
 
         public IndividualRunResults(Individual tester, int result, int differenceFromTarget, HashSet<int> mutatedOperationIndexes)
         {
@@ -116,12 +117,17 @@ namespace Numeros_Geneticos
 
             operationsSequence[operationsSequence.Length - 2] = sign;
             operationsSequence[operationsSequence.Length - 1] = $"={result}";
+
+            chromosomeStates = this.tester.CurrentChromosomeStates;
         }
 
-
-        public void PopulateWithIndividualInfo(PictureBox toDrawAt, DataGridView toWriteAt, int index)
+        public void PopulateWithIndividualInfo(ref Image toDrawAt, DataGridView toWriteAt, int index)
         {
-
+            int chromosomeCount = chromosomeStates.Length;
+            for (int i = 0; i < chromosomeCount; i++)
+            {
+                DrawingManager.FillSlot(ref toDrawAt, index, i, chromosomeStates[i].ChromosomeColor);
+            }
         }
 
         public override string ToString() => $"[Tester: {tester.Name}, Result: {result}, Distance From Target: {differenceFromTarget}]";
@@ -271,10 +277,12 @@ namespace Numeros_Geneticos
             }
         }
 
+        public Chromosome[] CurrentChromosomeStates => _chromosomes.TransformArray(chromosome => (Chromosome)chromosome.Clone());
+
         //------------------------------------------------------------------------------------//
         /*---------------------------------- METHODS -----------------------------------------*/
         //------------------------------------------------------------------------------------//
-        
+
         #region Mutation
 
         public void SimulateMutation()

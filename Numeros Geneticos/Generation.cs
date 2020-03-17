@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -36,12 +37,12 @@ namespace Numeros_Geneticos
             }
         }
 
-        public void PopulateWithGenerationInfo(PictureBox toDrawAt, DataGridView toWriteAt, RichTextBox resultsArea)
+        public void PopulateWithGenerationInfo(ref Image toDrawAt, DataGridView toWriteAt, RichTextBox resultsArea)
         {
             int totalResults = _results.Count;
             for (int i = 0; i < totalResults; i++)
             {
-                _results[i].PopulateWithIndividualInfo(toDrawAt, toWriteAt, i);
+                _results[i].PopulateWithIndividualInfo(ref toDrawAt, toWriteAt, i);
             }
 
             resultsArea.Text = $@"The best run from this generation was the following:{Environment.NewLine}{_results[0].ToString()}";
@@ -61,9 +62,25 @@ namespace Numeros_Geneticos
         {
             _resultsInfo = results;
 
-            for (int i = 0; i < SettingsManager.IndividualsPerGeneration; i++)
+            int totalElitismPicks = SettingsManager.SelectionsByElitism;
+            int individualsPerGeneration = SettingsManager.IndividualsPerGeneration;
+
+            for (int i = 0; i < totalElitismPicks; i++)
             {
-                RecordResult(new Individual(this).RunResult);
+                Individual father = previousGeneration._results[i].tester;
+                int motherIndex = RandomManager.RandomIntWithHollowSpot(0, individualsPerGeneration - 1, i);
+                Individual mother = previousGeneration._results[motherIndex].tester;
+
+                RecordResult(new Individual(this, father, true, mother, motherIndex < totalElitismPicks).RunResult);
+            }
+
+            for (int i = totalElitismPicks; i < individualsPerGeneration; i++)
+            {
+                Individual father = previousGeneration._results[i].tester;
+                int motherIndex = RandomManager.RandomIntWithHollowSpot(totalElitismPicks, individualsPerGeneration - 1, i);
+                Individual mother = previousGeneration._results[motherIndex].tester;
+
+                RecordResult(new Individual(this, father, false, mother, false).RunResult);
             }
         }
     }
