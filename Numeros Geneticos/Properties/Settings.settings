@@ -21,7 +21,7 @@
       <Value Profile="(Default)">25</Value>
     </Setting>
     <Setting Name="SecondaryMutationChromosomesAmount" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="InitialNumberChromosomesAmount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6</Value>
@@ -36,10 +36,10 @@
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="ChromosomesMatchesToConcludeSimilar" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="SimilarAmountToConcludeUniformity" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="TargetNumber" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>

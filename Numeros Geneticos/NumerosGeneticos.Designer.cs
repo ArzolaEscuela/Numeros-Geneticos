@@ -236,9 +236,19 @@
             // nupIndividualsPerGeneration
             // 
             this.nupIndividualsPerGeneration.Location = new System.Drawing.Point(249, 72);
+            this.nupIndividualsPerGeneration.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.nupIndividualsPerGeneration.Name = "nupIndividualsPerGeneration";
             this.nupIndividualsPerGeneration.Size = new System.Drawing.Size(120, 20);
             this.nupIndividualsPerGeneration.TabIndex = 15;
+            this.nupIndividualsPerGeneration.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.nupIndividualsPerGeneration.ValueChanged += new System.EventHandler(this.nupIndividualsPerGeneration_ValueChanged);
             // 
             // label1
@@ -285,9 +295,19 @@
             // nudMaxTotalGenerations
             // 
             this.nudMaxTotalGenerations.Location = new System.Drawing.Point(249, 171);
+            this.nudMaxTotalGenerations.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudMaxTotalGenerations.Name = "nudMaxTotalGenerations";
             this.nudMaxTotalGenerations.Size = new System.Drawing.Size(120, 20);
             this.nudMaxTotalGenerations.TabIndex = 21;
+            this.nudMaxTotalGenerations.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudMaxTotalGenerations.ValueChanged += new System.EventHandler(this.nudMaxTotalGenerations_ValueChanged);
             // 
             // label3
@@ -343,9 +363,19 @@
             0,
             0,
             0});
+            this.nupSecondaryMutationChromosomesAmount.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.nupSecondaryMutationChromosomesAmount.Name = "nupSecondaryMutationChromosomesAmount";
             this.nupSecondaryMutationChromosomesAmount.Size = new System.Drawing.Size(120, 20);
             this.nupSecondaryMutationChromosomesAmount.TabIndex = 25;
+            this.nupSecondaryMutationChromosomesAmount.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.nupSecondaryMutationChromosomesAmount.ValueChanged += new System.EventHandler(this.nupSecondaryMutationChromosomesAmount_ValueChanged);
             // 
             // label5
@@ -367,9 +397,19 @@
             0,
             0,
             0});
+            this.nupInitialNumberChromosomesAmount.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             this.nupInitialNumberChromosomesAmount.Name = "nupInitialNumberChromosomesAmount";
             this.nupInitialNumberChromosomesAmount.Size = new System.Drawing.Size(120, 20);
             this.nupInitialNumberChromosomesAmount.TabIndex = 27;
+            this.nupInitialNumberChromosomesAmount.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             this.nupInitialNumberChromosomesAmount.ValueChanged += new System.EventHandler(this.nupInitialNumberChromosomesAmount_ValueChanged);
             // 
             // label6

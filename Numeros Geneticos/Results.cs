@@ -144,7 +144,13 @@ namespace Numeros_Geneticos
 
             _errors.ForeColor = Color.Black;
             _errors.Clear();
-            _errors.Text = $@"La mejor corrida individual dentro de todas las generaciones es la siguiente de la generación #{_bestRunGeneration}:{Environment.NewLine}{_bestRun.ToString()}{Environment.NewLine}{Environment.NewLine}";
+
+            if (_generations.Last().StoppedBySimilarity)
+            {
+                _errors.Text = $@"El programa se detuvo ya que se encontró que las cromosomas de la última generación eran muy parecidas.{Environment.NewLine}{Environment.NewLine}";
+            }
+
+            _errors.Text += $@"La mejor corrida individual dentro de todas las generaciones es la siguiente de la generación #{_bestRunGeneration}:{Environment.NewLine}{_bestRun.ToString()}{Environment.NewLine}{Environment.NewLine}";
 
             #region Draw Image
 

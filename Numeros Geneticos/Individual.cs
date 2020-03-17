@@ -126,7 +126,7 @@ namespace Numeros_Geneticos
             int chromosomeCount = chromosomeStates.Length;
             for (int i = 0; i < chromosomeCount; i++)
             {
-                DrawingManager.FillSlot(ref toDrawAt, index, i, chromosomeStates[i].ChromosomeColor);
+                DrawingManager.FillSlot(ref toDrawAt, index, i, chromosomeStates[i].Usable ? chromosomeStates[i].ChromosomeColor : Color.White);
             }
 
             int size = Individual.AmountOfEntriesInResults + 2;
@@ -294,6 +294,25 @@ namespace Numeros_Geneticos
         //------------------------------------------------------------------------------------//
         /*---------------------------------- METHODS -----------------------------------------*/
         //------------------------------------------------------------------------------------//
+
+        public bool HasSimilarChromosomes(Individual other)
+        {
+            int chromosomeCount = _chromosomes.Length;
+            int totalMatches = 0;
+            for (int i = 0; i < chromosomeCount; i++)
+            {
+                if (_chromosomes[i].Usable == other._chromosomes[i].Usable)
+                {
+                    totalMatches++;
+                    if (totalMatches >= SettingsManager.ChromosomesMatchesToConcludeSimilar)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
 
         #region Mutation
 

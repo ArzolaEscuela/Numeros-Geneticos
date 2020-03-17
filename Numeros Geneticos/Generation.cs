@@ -16,12 +16,49 @@ namespace Numeros_Geneticos
         private readonly int _generationNumber;
         private List<IndividualRunResults> _results = new List<IndividualRunResults>();
 
+        private bool _stoppedBySimilarity = false;
+
         //------------------------------------------------------------------------------------//
         /*--------------------------------- PROPERTIES ---------------------------------------*/
         //------------------------------------------------------------------------------------//
 
         public int TargetValue => _resultsInfo.TargetValue;
-        public bool CanContinue => _results[0].differenceFromTarget != 0; // If the target value wasn't hit spot on, don't stop.
+
+        public bool StoppedBySimilarity => _stoppedBySimilarity;
+
+        public bool CanContinue
+        {
+            get
+            {
+                // If the target value was hit spot on, stop.
+                if (_results[0].differenceFromTarget == 0) { return false; }
+
+                // If the chromosomes from this generation are too similar, stop.
+                int totalResults = _results.Count;
+                int totalSimilar = 0;
+                for (int i = 0; i < totalResults; i++)
+                {
+                    Individual current = _results[i].tester;
+                    for (int j = i+1; j < totalResults; j++)
+                    {
+                        Individual toCompareWith = _results[j].tester;
+                        if (current.HasSimilarChromosomes(toCompareWith))
+                        {
+                            totalSimilar++;
+
+                            Console.WriteLine(current.Name + "|" + toCompareWith.Name);
+                            if (totalSimilar >= SettingsManager.IndividualMatchesToStopSimulation)
+                            {
+                                _stoppedBySimilarity = true;
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                return true;
+            }
+        }
 
         public int GenerationNumber => _generationNumber;
 
