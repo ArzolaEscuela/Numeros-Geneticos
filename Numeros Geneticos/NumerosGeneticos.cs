@@ -36,6 +36,8 @@ namespace Numeros_Geneticos
 
         private void RedrawText()
         {
+            rtbInstructions.Clear();
+
             var microsoft_12_bold = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
             var microsoft_12 = new Font("Microsoft Sans Serif", 10);
 
@@ -81,7 +83,8 @@ namespace Numeros_Geneticos
             rtbInstructions.AppendText($"{Environment.NewLine}{Environment.NewLine}Resultados{Environment.NewLine}{Environment.NewLine}");
             rtbInstructions.SelectionFont = microsoft_12;
 
-            rtbInstructions.AppendText(@"Cada generación será representada con una imagen, donde cada línea representa a un individuo, y cada uno de los pixeles, los cromosomas que tiene(siendo coloreado / no blanco un cromosoma ''encendido'').");
+            rtbInstructions.AppendText($@"Cada generación será representada con una imagen, donde cada línea representa a un individuo, y cada uno de los pixeles, los cromosomas que tiene(siendo coloreado / no blanco un cromosoma ''encendido'').
+{Environment.NewLine}Cada individuo recibe al azar un color que lo representa y sus cromosomas serán pintados de ese color. De la generación 2 en adelante, para que un individuo pinte un cuadro de su propio color, debe haber ocurrido una mutación sobre cualquier cromosoma que heredó.");
 
         }
 
@@ -177,11 +180,18 @@ namespace Numeros_Geneticos
             nupSimilarAmountToConcludeUniformity.Value = SettingsManager.IndividualMatchesToStopSimulation;
 
             numericUpDown1.Value = SettingsManager.TargetNumber;
+            checkBox1.Checked = SettingsManager.GuaranteedSurvivalForElites;
         }
 
         private void cbSeed_CheckedChanged(object sender, EventArgs e)
         {
             SettingsManager.UseSeed = cbSeed.Checked;
+        }
+
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            SettingsManager.GuaranteedSurvivalForElites = checkBox1.Checked;
         }
 
         private void nudSeed_ValueChanged(object sender, EventArgs e)
@@ -267,7 +277,7 @@ namespace Numeros_Geneticos
         private void bRun_Click(object sender, EventArgs e)
         {
             _results = new Results();
-            _results.StartNewRun(pbGenerationResults,  dgvGenerationResults, lGenerationCount, rtbErrors, bFirst, bLast, bNext, bPrevious);
+            _results.StartNewRun(pbGenerationResults, dgvGenerationResults, lGenerationCount, rtbErrors, bFirst, bLast, bNext, bPrevious);
         }
 
         private void bFirst_Click(object sender, EventArgs e)

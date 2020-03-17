@@ -74,6 +74,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.pPicture = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerationResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeed)).BeginInit();
@@ -106,7 +107,7 @@
             // 
             this.lSeed.CausesValidation = false;
             this.lSeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSeed.Location = new System.Drawing.Point(210, 8);
+            this.lSeed.Location = new System.Drawing.Point(210, 6);
             this.lSeed.Name = "lSeed";
             this.lSeed.Size = new System.Drawing.Size(123, 23);
             this.lSeed.TabIndex = 2;
@@ -128,7 +129,7 @@
             this.dgvGenerationResults.Location = new System.Drawing.Point(403, 319);
             this.dgvGenerationResults.Name = "dgvGenerationResults";
             this.dgvGenerationResults.ReadOnly = true;
-            this.dgvGenerationResults.Size = new System.Drawing.Size(496, 392);
+            this.dgvGenerationResults.Size = new System.Drawing.Size(496, 405);
             this.dgvGenerationResults.TabIndex = 4;
             // 
             // bPrevious
@@ -164,7 +165,7 @@
             // rtbInstructions
             // 
             this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbInstructions.Location = new System.Drawing.Point(12, 611);
+            this.rtbInstructions.Location = new System.Drawing.Point(12, 636);
             this.rtbInstructions.Name = "rtbInstructions";
             this.rtbInstructions.ReadOnly = true;
             this.rtbInstructions.Size = new System.Drawing.Size(375, 201);
@@ -174,7 +175,7 @@
             // lName
             // 
             this.lName.AutoSize = true;
-            this.lName.Location = new System.Drawing.Point(12, 819);
+            this.lName.Location = new System.Drawing.Point(12, 844);
             this.lName.Name = "lName";
             this.lName.Size = new System.Drawing.Size(179, 13);
             this.lName.TabIndex = 9;
@@ -183,7 +184,7 @@
             // bRun
             // 
             this.bRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bRun.Location = new System.Drawing.Point(208, 571);
+            this.bRun.Location = new System.Drawing.Point(208, 587);
             this.bRun.Name = "bRun";
             this.bRun.Size = new System.Drawing.Size(179, 30);
             this.bRun.TabIndex = 10;
@@ -193,7 +194,7 @@
             // 
             // nudSeed
             // 
-            this.nudSeed.Location = new System.Drawing.Point(213, 34);
+            this.nudSeed.Location = new System.Drawing.Point(213, 32);
             this.nudSeed.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -212,7 +213,7 @@
             // barElitismChromosomeChance
             // 
             this.barElitismChromosomeChance.LargeChange = 50;
-            this.barElitismChromosomeChance.Location = new System.Drawing.Point(28, 215);
+            this.barElitismChromosomeChance.Location = new System.Drawing.Point(28, 231);
             this.barElitismChromosomeChance.Maximum = 1000;
             this.barElitismChromosomeChance.Name = "barElitismChromosomeChance";
             this.barElitismChromosomeChance.Size = new System.Drawing.Size(288, 45);
@@ -224,7 +225,7 @@
             // 
             this.cbSeed.AutoSize = true;
             this.cbSeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSeed.Location = new System.Drawing.Point(72, 35);
+            this.cbSeed.Location = new System.Drawing.Point(72, 33);
             this.cbSeed.Name = "cbSeed";
             this.cbSeed.Size = new System.Drawing.Size(110, 17);
             this.cbSeed.TabIndex = 14;
@@ -234,7 +235,7 @@
             // 
             // nupIndividualsPerGeneration
             // 
-            this.nupIndividualsPerGeneration.Location = new System.Drawing.Point(249, 82);
+            this.nupIndividualsPerGeneration.Location = new System.Drawing.Point(249, 72);
             this.nupIndividualsPerGeneration.Name = "nupIndividualsPerGeneration";
             this.nupIndividualsPerGeneration.Size = new System.Drawing.Size(120, 20);
             this.nupIndividualsPerGeneration.TabIndex = 15;
@@ -244,7 +245,7 @@
             // 
             this.label1.CausesValidation = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 82);
+            this.label1.Location = new System.Drawing.Point(34, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 23);
             this.label1.TabIndex = 16;
@@ -256,7 +257,7 @@
             this.separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.separator.CausesValidation = false;
             this.separator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.separator.Location = new System.Drawing.Point(28, 67);
+            this.separator.Location = new System.Drawing.Point(28, 62);
             this.separator.Name = "separator";
             this.separator.Size = new System.Drawing.Size(349, 2);
             this.separator.TabIndex = 17;
@@ -266,7 +267,7 @@
             // 
             this.label2.CausesValidation = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 109);
+            this.label2.Location = new System.Drawing.Point(34, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 23);
             this.label2.TabIndex = 18;
@@ -275,7 +276,7 @@
             // 
             // nudSelectionsByElitism
             // 
-            this.nudSelectionsByElitism.Location = new System.Drawing.Point(249, 112);
+            this.nudSelectionsByElitism.Location = new System.Drawing.Point(249, 102);
             this.nudSelectionsByElitism.Name = "nudSelectionsByElitism";
             this.nudSelectionsByElitism.Size = new System.Drawing.Size(120, 20);
             this.nudSelectionsByElitism.TabIndex = 19;
@@ -283,7 +284,7 @@
             // 
             // nudMaxTotalGenerations
             // 
-            this.nudMaxTotalGenerations.Location = new System.Drawing.Point(249, 144);
+            this.nudMaxTotalGenerations.Location = new System.Drawing.Point(249, 171);
             this.nudMaxTotalGenerations.Name = "nudMaxTotalGenerations";
             this.nudMaxTotalGenerations.Size = new System.Drawing.Size(120, 20);
             this.nudMaxTotalGenerations.TabIndex = 21;
@@ -293,7 +294,7 @@
             // 
             this.label3.CausesValidation = false;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 141);
+            this.label3.Location = new System.Drawing.Point(34, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 23);
             this.label3.TabIndex = 20;
@@ -302,7 +303,7 @@
             // 
             // nupTotalChromosomes
             // 
-            this.nupTotalChromosomes.Location = new System.Drawing.Point(249, 255);
+            this.nupTotalChromosomes.Location = new System.Drawing.Point(249, 272);
             this.nupTotalChromosomes.Maximum = new decimal(new int[] {
             500,
             0,
@@ -327,7 +328,7 @@
             // 
             this.label4.CausesValidation = false;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 252);
+            this.label4.Location = new System.Drawing.Point(34, 269);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(192, 23);
             this.label4.TabIndex = 22;
@@ -336,7 +337,7 @@
             // 
             // nupSecondaryMutationChromosomesAmount
             // 
-            this.nupSecondaryMutationChromosomesAmount.Location = new System.Drawing.Point(249, 285);
+            this.nupSecondaryMutationChromosomesAmount.Location = new System.Drawing.Point(249, 302);
             this.nupSecondaryMutationChromosomesAmount.Maximum = new decimal(new int[] {
             500,
             0,
@@ -351,7 +352,7 @@
             // 
             this.label5.CausesValidation = false;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(38, 282);
+            this.label5.Location = new System.Drawing.Point(38, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 26);
             this.label5.TabIndex = 24;
@@ -360,7 +361,7 @@
             // 
             // nupInitialNumberChromosomesAmount
             // 
-            this.nupInitialNumberChromosomesAmount.Location = new System.Drawing.Point(249, 319);
+            this.nupInitialNumberChromosomesAmount.Location = new System.Drawing.Point(249, 336);
             this.nupInitialNumberChromosomesAmount.Maximum = new decimal(new int[] {
             500,
             0,
@@ -375,7 +376,7 @@
             // 
             this.label6.CausesValidation = false;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(38, 316);
+            this.label6.Location = new System.Drawing.Point(38, 333);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(192, 26);
             this.label6.TabIndex = 26;
@@ -386,7 +387,7 @@
             // 
             this.label7.CausesValidation = false;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 189);
+            this.label7.Location = new System.Drawing.Point(9, 208);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(385, 23);
             this.label7.TabIndex = 28;
@@ -397,7 +398,7 @@
             // 
             this.lElitismChance.CausesValidation = false;
             this.lElitismChance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lElitismChance.Location = new System.Drawing.Point(314, 215);
+            this.lElitismChance.Location = new System.Drawing.Point(314, 231);
             this.lElitismChance.Name = "lElitismChance";
             this.lElitismChance.Size = new System.Drawing.Size(55, 23);
             this.lElitismChance.TabIndex = 29;
@@ -409,7 +410,7 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.CausesValidation = false;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 180);
+            this.label9.Location = new System.Drawing.Point(28, 200);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(349, 2);
             this.label9.TabIndex = 30;
@@ -420,7 +421,7 @@
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label10.CausesValidation = false;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(28, 356);
+            this.label10.Location = new System.Drawing.Point(28, 372);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(349, 2);
             this.label10.TabIndex = 31;
@@ -428,7 +429,7 @@
             // 
             // nupMaxMutableChromosomes
             // 
-            this.nupMaxMutableChromosomes.Location = new System.Drawing.Point(240, 440);
+            this.nupMaxMutableChromosomes.Location = new System.Drawing.Point(240, 452);
             this.nupMaxMutableChromosomes.Maximum = new decimal(new int[] {
             500,
             0,
@@ -443,7 +444,7 @@
             // 
             this.label11.CausesValidation = false;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(25, 433);
+            this.label11.Location = new System.Drawing.Point(25, 445);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(192, 35);
             this.label11.TabIndex = 32;
@@ -454,7 +455,7 @@
             // 
             this.lMutationChance.CausesValidation = false;
             this.lMutationChance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lMutationChance.Location = new System.Drawing.Point(312, 394);
+            this.lMutationChance.Location = new System.Drawing.Point(312, 404);
             this.lMutationChance.Name = "lMutationChance";
             this.lMutationChance.Size = new System.Drawing.Size(57, 23);
             this.lMutationChance.TabIndex = 36;
@@ -465,7 +466,7 @@
             // 
             this.label13.CausesValidation = false;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 368);
+            this.label13.Location = new System.Drawing.Point(9, 381);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(385, 23);
             this.label13.TabIndex = 35;
@@ -475,7 +476,7 @@
             // barMutationChance
             // 
             this.barMutationChance.LargeChange = 50;
-            this.barMutationChance.Location = new System.Drawing.Point(28, 394);
+            this.barMutationChance.Location = new System.Drawing.Point(28, 404);
             this.barMutationChance.Maximum = 1000;
             this.barMutationChance.Name = "barMutationChance";
             this.barMutationChance.Size = new System.Drawing.Size(288, 45);
@@ -488,7 +489,7 @@
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label14.CausesValidation = false;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(28, 480);
+            this.label14.Location = new System.Drawing.Point(28, 490);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(349, 2);
             this.label14.TabIndex = 37;
@@ -496,7 +497,7 @@
             // 
             // nupChromosomesMatchesToConcludeSimilar
             // 
-            this.nupChromosomesMatchesToConcludeSimilar.Location = new System.Drawing.Point(236, 497);
+            this.nupChromosomesMatchesToConcludeSimilar.Location = new System.Drawing.Point(236, 508);
             this.nupChromosomesMatchesToConcludeSimilar.Maximum = new decimal(new int[] {
             500,
             0,
@@ -511,7 +512,7 @@
             // 
             this.label15.CausesValidation = false;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(25, 494);
+            this.label15.Location = new System.Drawing.Point(25, 505);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(192, 26);
             this.label15.TabIndex = 38;
@@ -520,7 +521,7 @@
             // 
             // nupSimilarAmountToConcludeUniformity
             // 
-            this.nupSimilarAmountToConcludeUniformity.Location = new System.Drawing.Point(236, 531);
+            this.nupSimilarAmountToConcludeUniformity.Location = new System.Drawing.Point(236, 542);
             this.nupSimilarAmountToConcludeUniformity.Name = "nupSimilarAmountToConcludeUniformity";
             this.nupSimilarAmountToConcludeUniformity.Size = new System.Drawing.Size(120, 20);
             this.nupSimilarAmountToConcludeUniformity.TabIndex = 41;
@@ -530,7 +531,7 @@
             // 
             this.label16.CausesValidation = false;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(25, 528);
+            this.label16.Location = new System.Drawing.Point(25, 539);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(192, 26);
             this.label16.TabIndex = 40;
@@ -540,7 +541,7 @@
             // rtbErrors
             // 
             this.rtbErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbErrors.Location = new System.Drawing.Point(401, 717);
+            this.rtbErrors.Location = new System.Drawing.Point(401, 742);
             this.rtbErrors.Name = "rtbErrors";
             this.rtbErrors.ReadOnly = true;
             this.rtbErrors.Size = new System.Drawing.Size(498, 95);
@@ -560,7 +561,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(97, 576);
+            this.numericUpDown1.Location = new System.Drawing.Point(97, 592);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -580,7 +581,7 @@
             // 
             this.label8.CausesValidation = false;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 575);
+            this.label8.Location = new System.Drawing.Point(3, 591);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 23);
             this.label8.TabIndex = 44;
@@ -597,11 +598,25 @@
             this.pPicture.Size = new System.Drawing.Size(502, 250);
             this.pPicture.TabIndex = 46;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(22, 131);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(364, 30);
+            this.checkBox1.TabIndex = 47;
+            this.checkBox1.Text = "¿Los Individuos de Élite Pasan A La Siguiente Generación?\r\n(De Lo Contrario, Solo" +
+    " Tendrán Prioridad de Reproducción)";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // NumerosGeneticos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 840);
+            this.ClientSize = new System.Drawing.Size(911, 865);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.lGenerationCount);
             this.Controls.Add(this.pPicture);
             this.Controls.Add(this.numericUpDown1);
@@ -721,6 +736,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pPicture;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

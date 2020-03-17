@@ -35,7 +35,7 @@ namespace Numeros_Geneticos
             bool[] operations = tester.UnMutatedOperations;
             operationsSequence = new string[Individual.AmountOfEntriesInResults];
             operationsSequence[0] = $"{tester.InitialValue}";
-            int index = 1;
+            int index = 0;
 
             int operationsCount = operations.Length;
             int operationsUsed = 1;
@@ -84,7 +84,7 @@ namespace Numeros_Geneticos
                 {
                     switch (nextOperation)
                     {
-                        case EOperations.DoNothing: continue;
+                        case EOperations.DoNothing: operationsSequence[index] = "Ignorada " + (mutatedResult ? "(Mutación)" : string.Empty); continue;
                         case EOperations.AddOrSubtract:
                             char asSign = useFirstOperation ? '+' : '-';
                             resultString += $"{asSign}{operationCounters.GetNextMagnitude(EOperations.AddOrSubtract)}";
@@ -95,7 +95,7 @@ namespace Numeros_Geneticos
                                 $"{mdSign}{operationCounters.GetNextMagnitude(EOperations.MultiplyOrDivide)}";
                             break;
                         case EOperations.SquareOrSquareRoot:
-                            string ssSign = useFirstOperation ? "²" : "√";
+                            string ssSign = useFirstOperation ? "^2" : "Raíz Cuadrada";
                             resultString += $"{ssSign}";
                             break;
                         default:
@@ -105,7 +105,7 @@ namespace Numeros_Geneticos
 
                     if (mutatedResult)
                     {
-                        resultString += " (Mutation)";
+                        resultString += " (Mutación)";
                     }
 
                     operationsSequence[index] = resultString;
@@ -113,10 +113,10 @@ namespace Numeros_Geneticos
                 catch { continue; }
             }
 
-            string sign = tester.Sign ? "*1 (Sign)" : "*-1 (Sign)";
+            string sign = tester.Sign ? "*1 (Signo)" : "*-1 (Signo)";
 
             operationsSequence[operationsSequence.Length - 2] = sign;
-            operationsSequence[operationsSequence.Length - 1] = $"={result}";
+            operationsSequence[operationsSequence.Length - 1] = $"{result}";
 
             chromosomeStates = this.tester.CurrentChromosomeStates;
         }
@@ -128,9 +128,21 @@ namespace Numeros_Geneticos
             {
                 DrawingManager.FillSlot(ref toDrawAt, index, i, chromosomeStates[i].ChromosomeColor);
             }
+
+            int size = Individual.AmountOfEntriesInResults + 2;
+            object[] row = new object[size];
+
+            row[0] = tester.Name;
+            row[1] = $"Generation #{tester.Generation.GenerationNumber}";
+            for (int i = 2; i < size; i++)
+            {
+                row[i] = operationsSequence[i - 2];
+            }
+
+            toWriteAt.Rows.Add(row);
         }
 
-        public override string ToString() => $"[Tester: {tester.Name}, Result: {result}, Distance From Target: {differenceFromTarget}]";
+        public override string ToString() => $"[Individuo: {tester.Name}, Resultado: {result}, Distancia del Blanco: {differenceFromTarget}]";
     }
 
     public class Individual
@@ -273,7 +285,7 @@ namespace Numeros_Geneticos
             get
             {
                 totalIndividuals++;
-                return $"Individual #{totalIndividuals}";
+                return $"Individuo #{totalIndividuals}";
             }
         }
 
@@ -347,6 +359,9 @@ namespace Numeros_Geneticos
             {
                 _chromosomes[i] = (RandomManager.EvaluatePercentage(getChromosomeFromFatherChance) ? father : mother)._chromosomes[i];
             }
+
+
+            SimulateMutation();
         }
 
         public Individual(Generation generation)

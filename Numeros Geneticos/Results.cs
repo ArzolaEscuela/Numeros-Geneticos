@@ -44,6 +44,11 @@ namespace Numeros_Geneticos
         private List<Generation> _generations = new List<Generation>();
         private int _currentlyReviewedGeneration = 0;
 
+        private IndividualRunResults _bestRun;
+        private int _bestRunGeneration = -1;
+
+        private int _elapsedGenerations = 0;
+
         //------------------------------------------------------------------------------------//
         /*--------------------------------- PROPERTIES ---------------------------------------*/
         //------------------------------------------------------------------------------------//
@@ -104,19 +109,42 @@ namespace Numeros_Geneticos
         {
             Individual.ResetIndividualsCount();
 
-            _generations.Add(new Generation(this));
+            _elapsedGenerations++;
+            _generations.Add(new Generation(this, _elapsedGenerations));
             while (_generations.Count < SettingsManager.MaxTotalGenerations && _generations.Last().CanContinue)
             {
+                _elapsedGenerations++;
                 Generation last = _generations.Last();
-                _generations.Add(new Generation(this, last));
+                _generations.Add(new Generation(this, _elapsedGenerations, last));
             }
+        }
+
+        public void AttemptToRegisterAsBestRun(IndividualRunResults potentiallyBest)
+        {
+            if (_elapsedGenerations != 1 && potentiallyBest.differenceFromTarget >= _bestRun.differenceFromTarget) { return; }
+
+            _bestRun = potentiallyBest;
+            _bestRunGeneration = _elapsedGenerations;
         }
 
         private void DrawGenerationResults()
         {
             _canvas.ClearAndRedrawGrid();
             _sheet.Clear();
+
+            _sheet.Columns.Add("Nombre", "Nombre");
+            _sheet.Columns.Add("Generación", "Generación");
+            _sheet.Columns.Add("Valor Inicial", "Valor Inicial");
+            for (int i = 1; i < Individual.AmountOfEntriesInResults - 2; i++)
+            {
+                _sheet.Columns.Add($"Operación #{i}", $"Operación #{i}");
+            }
+            _sheet.Columns.Add("Signo", "Signo");
+            _sheet.Columns.Add("Resultado", "Resultado");
+
             _errors.ForeColor = Color.Black;
+            _errors.Clear();
+            _errors.Text = $@"La mejor corrida individual dentro de todas las generaciones es la siguiente de la generación #{_bestRunGeneration}:{Environment.NewLine}{_bestRun.ToString()}{Environment.NewLine}{Environment.NewLine}";
 
             #region Draw Image
 

@@ -153,5 +153,15 @@ namespace Numeros_Geneticos
                 Properties.Settings.Default.Save();
             }
         }
+
+        public static bool GuaranteedSurvivalForElites
+        {
+            get => Settings.Default.PriorityReproductionInsteadOfGuaranteedSurvival;
+            set
+            {
+                Properties.Settings.Default.PriorityReproductionInsteadOfGuaranteedSurvival = value;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

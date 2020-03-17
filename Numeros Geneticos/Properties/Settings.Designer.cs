@@ -190,5 +190,17 @@ namespace Numeros_Geneticos.Properties {
                 this["TargetNumber"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PriorityReproductionInsteadOfGuaranteedSurvival {
+            get {
+                return ((bool)(this["PriorityReproductionInsteadOfGuaranteedSurvival"]));
+            }
+            set {
+                this["PriorityReproductionInsteadOfGuaranteedSurvival"] = value;
+            }
+        }
     }
 }

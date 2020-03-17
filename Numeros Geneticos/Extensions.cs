@@ -45,12 +45,7 @@ namespace Numeros_Geneticos
             Array.Copy(array, minIndex, result, 0, length);
             return result;
         }
-
-        public static bool IsNumeric(this string thisString)
-        {
-            return Regex.IsMatch(thisString, @"^\d+$");
-        }
-
+        
         public static void Clear(this DataGridView dgv)
         {
             dgv.Rows.Clear();
@@ -62,17 +57,7 @@ namespace Numeros_Geneticos
         {
             // throw new NotImplementedException();
         }
-
-        public static int AsInt(this string thisString)
-        {
-            int result;
-            if (int.TryParse(thisString, out result))
-            {
-                return result;
-            }
-            return -1;
-        }
-
+        
         public static T2[] TransformArray<T, T2>(this T[] array, Func<T, T2> transformer)
         {
             int arraySize = array.Length;

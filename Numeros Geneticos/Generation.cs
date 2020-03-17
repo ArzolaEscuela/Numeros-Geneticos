@@ -13,6 +13,7 @@ namespace Numeros_Geneticos
         //------------------------------------------------------------------------------------//
 
         private readonly Results _resultsInfo;
+        private readonly int _generationNumber;
         private List<IndividualRunResults> _results = new List<IndividualRunResults>();
 
         //------------------------------------------------------------------------------------//
@@ -21,6 +22,8 @@ namespace Numeros_Geneticos
 
         public int TargetValue => _resultsInfo.TargetValue;
         public bool CanContinue => _results[0].differenceFromTarget != 0; // If the target value wasn't hit spot on, don't stop.
+
+        public int GenerationNumber => _generationNumber;
 
         //------------------------------------------------------------------------------------//
         /*---------------------------------- METHODS -----------------------------------------*/
@@ -34,6 +37,8 @@ namespace Numeros_Geneticos
             {
                 _results.Sort((a, b) => a.differenceFromTarget == b.differenceFromTarget ? 0
                     : a.differenceFromTarget.CompareTo(b.differenceFromTarget));
+
+                _resultsInfo.AttemptToRegisterAsBestRun(_results[0]);
             }
         }
 
@@ -45,12 +50,13 @@ namespace Numeros_Geneticos
                 _results[i].PopulateWithIndividualInfo(ref toDrawAt, toWriteAt, i);
             }
 
-            resultsArea.Text = $@"The best run from this generation was the following:{Environment.NewLine}{_results[0].ToString()}";
+            resultsArea.Text += $@"La mejor corrida de esta generación fue la siguiente:{Environment.NewLine}{_results[0].ToString()}";
         }
 
-        public Generation(Results results)
+        public Generation(Results results, int generationNumber)
         {
             _resultsInfo = results;
+            _generationNumber = generationNumber;
 
             for (int i = 0; i < SettingsManager.IndividualsPerGeneration; i++)
             {
@@ -58,15 +64,22 @@ namespace Numeros_Geneticos
             }
         }
 
-        public Generation(Results results, Generation previousGeneration)
+        public Generation(Results results, int generationNumber, Generation previousGeneration)
         {
             _resultsInfo = results;
+            _generationNumber = generationNumber;
 
             int totalElitismPicks = SettingsManager.SelectionsByElitism;
             int individualsPerGeneration = SettingsManager.IndividualsPerGeneration;
 
             for (int i = 0; i < totalElitismPicks; i++)
             {
+                if (SettingsManager.GuaranteedSurvivalForElites)
+                {
+                    RecordResult(previousGeneration._results[i].tester.RunResult);
+                    continue;
+                }
+
                 Individual father = previousGeneration._results[i].tester;
                 int motherIndex = RandomManager.RandomIntWithHollowSpot(0, individualsPerGeneration - 1, i);
                 Individual mother = previousGeneration._results[motherIndex].tester;
@@ -77,10 +90,10 @@ namespace Numeros_Geneticos
             for (int i = totalElitismPicks; i < individualsPerGeneration; i++)
             {
                 Individual father = previousGeneration._results[i].tester;
-                int motherIndex = RandomManager.RandomIntWithHollowSpot(totalElitismPicks, individualsPerGeneration - 1, i);
+                int motherIndex = RandomManager.RandomIntWithHollowSpot(0, individualsPerGeneration - 1, i);
                 Individual mother = previousGeneration._results[motherIndex].tester;
 
-                RecordResult(new Individual(this, father, false, mother, false).RunResult);
+                RecordResult(new Individual(this, father, false, mother, motherIndex < totalElitismPicks).RunResult);
             }
         }
     }
